@@ -24,6 +24,8 @@ public class Strings {
         }else{
             System.out.println("is not empty");
         }*/
+        System.out.println(convertStringToBoolean("true"));
+        System.out.println(convertStringToBoolean("false"));
         splitField54();
         System.out.println(contains("MIRINDA 300ML"));
         System.out.println(measureUnit("TRAD-MF-01", ""));
@@ -31,7 +33,11 @@ public class Strings {
         logRequest("agentId=900424&charges=false&installedVersion=v1.5.4&jwtToken=&password=0000&requestDest=ABC&requestOrigin=MPOS&requestTime=2023-10-20 15:37:37&setLanguage=ENGLISH&deviceId=20D86C94CBF2B146&latitude=0.321493&longitude=32.5773446&osVersion=31");
     }
 
-    private static void splitField54(){
+    private static Boolean convertStringToBoolean(String myString) {
+        return Boolean.valueOf(myString);
+    }
+
+    private static void splitField54() {
         String field54 = "Fredson Fenua|11001085";
         String[] parts = field54.split("\\|");
 
@@ -43,6 +49,7 @@ public class Strings {
             System.out.println("Customer");
         }
     }
+
     private static void removeS() {
         String originalString = "6777557691";
 
