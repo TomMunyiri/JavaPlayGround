@@ -25,6 +25,7 @@ public class DatePlay {
         monthAbbreviations.put("NOV", "11");
         monthAbbreviations.put("DEC", "12");
     }
+
     public static String calculateAge(String dateString) {
         // Convert month abbreviation to numerical representation
         String[] dateParts = dateString.split("-");
@@ -57,12 +58,30 @@ public class DatePlay {
     }
 
     public static void main(String[] args) {
-        try {
+        String inputDateString = "12/15/2023";
+        String formattedDate = convertDateFormat(inputDateString);
+        System.out.println("Formatted Date: " + formattedDate);
+        /*try {
             String birthDateString = "15-JUL-47";
             String age = calculateAge(birthDateString);
             System.out.println("Age: " + age);
         } catch (Exception e) {
             System.out.println("Exception: " + e.getLocalizedMessage());
-        }
+        }*/
+    }
+
+    public static String convertDateFormat(String dateString) {
+        // Define the date format of the input string
+        DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+
+        // Parse the input string into a LocalDate object
+        LocalDate date = LocalDate.parse(dateString, inputFormatter);
+
+        // Define the desired output format
+        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        // Format the LocalDate object into the desired format
+
+        return date.format(outputFormatter);
     }
 }
